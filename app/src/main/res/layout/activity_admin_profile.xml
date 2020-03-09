@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminActivity.AdminProfileActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile Page"
+        android:textSize="38dp"
+        android:id="@+id/admin_profile_page_textview"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="Name : "
+        android:id="@+id/admin_name_textview"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/admin_profile_page_textview"/>
+
+    <EditText
+        android:id="@+id/admin_name_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/admin_profile_page_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/admin_name_textview"
+        android:hint="eg. Muhammad Ali"
+        android:background="@drawable/input_design"
+        android:textSize="20dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="Phone : "
+        android:layout_below="@+id/admin_name_textview"
+        android:id="@+id/admin_phone_textview"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp" />
+
+
+    <EditText
+        android:id="@+id/admin_phone_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/admin_name_input"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/admin_phone_textview"
+        android:hint="eg. 019-23123421"
+        android:background="@drawable/input_design"
+        android:textSize="20dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="Address : "
+        android:layout_below="@+id/admin_phone_textview"
+        android:id="@+id/admin_address_textview"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp" />
+
+    <EditText
+        android:id="@+id/admin_address_input"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/admin_phone_input"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/admin_address_textview"
+        android:hint="20,Jalan USJ 5/3K, 47600 Subang Jaya, Selangor"
+        android:background="@drawable/input_design"
+        android:textSize="20sp"
+        android:textAlignment="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:id="@+id/admin_profile_back_button"
+        android:background="@drawable/transparentbackground"
+        android:layout_below="@+id/admin_address_textview"
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="95dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:id="@+id/admin_profile_save_button"
+        android:background="@drawable/transparentbackground"
+        android:layout_below="@id/admin_address_textview"
+        android:layout_marginTop="300dp"
+        android:layout_toRightOf="@id/admin_profile_back_button"
+        android:layout_marginLeft="50dp" />
+
+</RelativeLayout>

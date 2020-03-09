@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ecoversex">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".AdminActivity.UpdateMaterialActivity"></activity>
+        <activity android:name=".AdminActivity.AddMaterialActivity" />
+        <activity android:name=".AdminActivity.AdminProfileActivity" />
+        <activity android:name=".AdminActivity.AdminViewSubmissionActivity" />
+        <activity android:name=".AdminActivity.AdminViewMaterialActivity" />
+        <activity android:name=".AdminActivity.AdminActivity" />
+        <activity android:name=".GeneralActivity.UserActivity" />
+        <activity android:name=".GeneralActivity.ForgotPasswordActivity" />
+        <activity android:name=".GeneralActivity.SignUpActivity" />
+        <activity android:name=".GeneralActivity.LoginActivity" />
+        <activity android:name=".GeneralActivity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

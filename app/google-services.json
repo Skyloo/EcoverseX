@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "513109075694",
+    "firebase_url": "https://ecoversex-0309.firebaseio.com",
+    "project_id": "ecoversex-0309",
+    "storage_bucket": "ecoversex-0309.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513109075694:android:371bc5797f2c84f989b5ff",
+        "android_client_info": {
+          "package_name": "com.example.ecoversex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513109075694-gvoell8ovo2danuu7p91u1s3kpahlvai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecoversex",
+            "certificate_hash": "408d7f3c0c7b6acfd6803437f44c43ff4010c155"
+          }
+        },
+        {
+          "client_id": "513109075694-d2vpgn29jbvte7kebgb9sndebcdvujmu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8p4TQ-sI_bq2o911pB1N0VgUbhOPtffk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513109075694-d2vpgn29jbvte7kebgb9sndebcdvujmu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

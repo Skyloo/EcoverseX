@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminActivity.AddMaterialActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adding new Material"
+        android:id="@+id/add_material_main_textview"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="15dp"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name : "
+        android:id="@+id/materialname_textview"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/add_material_main_textview"
+        android:textSize="22sp"/>
+
+    <EditText
+        android:id="@+id/materialname_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_below="@+id/add_material_main_textview"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/materialname_textview"
+        android:background="@drawable/input_design"
+        android:textAlignment="center"
+        android:hint="eg. Plastic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description : "
+        android:id="@+id/description_textview"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/pointPerKg_textview"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/description_input"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/pointPerKg_input"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/input_design"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        android:layout_toRightOf="@+id/description_textview"
+        android:hint="eg. A substance made of petroleum." />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Points Per Kg : "
+        android:id="@+id/pointPerKg_textview"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="64dp"
+        android:layout_below="@+id/materialname_textview"
+        android:textSize="22sp" />
+
+    <EditText
+        android:id="@+id/pointPerKg_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/materialname_input"
+        android:layout_marginTop="29dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/pointPerKg_textview"
+        android:hint="100"
+        android:background="@drawable/input_design"
+        android:textAlignment="center"
+        android:textSize="22dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_below="@id/description_input"
+        android:id="@+id/material_save_button"
+        android:layout_toRightOf="@+id/material_back_button"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="50dp"
+        android:onClick="AddMaterial"
+        android:background="@drawable/transparentbackground"
+        android:textColor="@color/colorPrimary"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_below="@id/description_input"
+        android:id="@+id/material_back_button"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="50dp"
+        android:onClick="BackButton"
+        android:background="@drawable/transparentbackground"
+        android:textColor="@color/colorPrimary"/>
+
+
+</RelativeLayout>
