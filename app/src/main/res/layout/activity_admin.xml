@@ -63,7 +63,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
-        android:text="View Material"
+        android:text="View Submission"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/transparentbackground"
         android:id="@+id/admin_view_submission_button"

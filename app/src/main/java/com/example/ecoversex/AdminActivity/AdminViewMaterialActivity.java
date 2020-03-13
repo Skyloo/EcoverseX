@@ -73,7 +73,7 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
                 }
             }
         });
-        GetAllMaterial();
+        GetAllMaterial();*/
 
         admin_add_material_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +92,6 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
 
                 }
             }
-        });*/
+        });
     }
 }
