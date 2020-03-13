@@ -2,42 +2,27 @@ package com.example.ecoversex.HelperClass;
 
 public class Material {
 
-    private int genericMatID = 1;
-    private String materialID;
     private String materialname;
-    private String materialdescription;
+    private String description;
     private String pointPerKg;
 
-    public Material(String materialID, String materialname, String materialdescription, String pointPerKg){
-        this.materialID = materialID;
+    public Material(String materialname, String description, String pointPerKg){
         this.materialname = materialname;
-        this.materialdescription = materialdescription;
+        this.description = description;
         this.pointPerKg = pointPerKg;
     }
 
-    public int getGenericMatID() {
-        return genericMatID;
-    }
-    public void setGenericMatID(int genericMatID) {
-        this.genericMatID = genericMatID;
-    }
-    public String getMaterialID() {
-        return materialID;
-    }
-    public void setMaterialID(String materialID) {
-        this.materialID = String.format("SN%03d", genericMatID++);
-    }
     public String getMaterialname() {
         return materialname;
     }
     public void setMaterialname(String materialname) {
         this.materialname = materialname;
     }
-    public String getMaterialdescription() {
-        return materialdescription;
+    public String getDescription() {
+        return description;
     }
-    public void setMaterialdescription(String materialdescription) {
-        this.materialdescription = materialdescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
     public String getPointPerKg() {
         return pointPerKg;
@@ -47,9 +32,8 @@ public class Material {
     }
 
     public String toString(){
-        return ("Material ID : " + getMaterialID() +
-                "\nMaterial Name : " + getMaterialname() +
-                "\nDescription : " + getMaterialdescription() +
+        return ("Material Name : " + getMaterialname() +
+                "\nDescription : " + getDescription() +
                 "\nPoint Per Kg : " + getPointPerKg());
 
     }

@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         //Get from firebase user name, user email, user photo
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null) {
             String name = user.getDisplayName();
             String email = user.getEmail();

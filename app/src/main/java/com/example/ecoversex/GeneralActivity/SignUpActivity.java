@@ -64,8 +64,8 @@ public class SignUpActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please key in your Password...", Toast.LENGTH_LONG).show();
         }
-        if (password.length() <= 4) {
-            register_password_input.setError("Password must be more than 4 characters");
+        if (password.length() <= 6) {
+            register_password_input.setError("Password must be more than 6 characters");
             return;
         }
 

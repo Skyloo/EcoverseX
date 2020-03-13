@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">EcoverseX</string>
+    <string name="update_new_material">Update new Material</string>
+    <string name="name">Name :</string>
+    <string name="description">Description :</string>
+    <string name="points_per_kg">Points Per Kg :</string>
+    <string name="addButton">Save</string>
 
 </resources>

@@ -107,6 +107,6 @@
         android:layout_below="@id/admin_address_textview"
         android:layout_marginTop="300dp"
         android:layout_toRightOf="@id/admin_profile_back_button"
-        android:layout_marginLeft="50dp" />
+        android:layout_marginLeft="50dp"/>
 
 </RelativeLayout>

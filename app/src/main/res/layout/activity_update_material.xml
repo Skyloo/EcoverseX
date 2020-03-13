@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update new Material"
+        android:text="@string/update_new_material"
         android:id="@+id/update_material_textview"
         android:layout_marginStart="5dp"
         android:layout_marginTop="15dp"
@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name : "
+        android:text="@string/name"
         android:id="@+id/update_materialname_textview"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
@@ -29,19 +29,21 @@
         android:id="@+id/update_materialname_input"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:padding="20dp"
         android:layout_below="@+id/update_material_textview"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_toRightOf="@+id/update_materialname_textview"
+        android:layout_marginEnd="15dp"
+        android:layout_toEndOf="@+id/update_materialname_textview"
+        android:autofillHints=""
         android:background="@drawable/input_design"
-        android:textAlignment="center"
-        android:hint="eg. Plastic" />
+        android:hint="eg. Plastic"
+        android:inputType="text"
+        android:padding="20dp"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description : "
+        android:text="@string/description"
         android:id="@+id/update_description_textview"
         android:layout_marginStart="15dp"
         android:layout_marginTop="55dp"
@@ -55,16 +57,17 @@
         android:layout_below="@+id/update_pointPerKg_input"
         android:layout_marginTop="25dp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/input_design"
-        android:textAlignment="center"
-        android:textSize="22dp"
         android:layout_toRightOf="@+id/update_description_textview"
-        android:hint="eg. A substance made of petroleum." />
+        android:background="@drawable/input_design"
+        android:hint="eg. A substance made of petroleum."
+        android:inputType="textAutoCorrect"
+        android:textAlignment="center"
+        android:textSize="22dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Points Per Kg : "
+        android:text="@string/points_per_kg"
         android:id="@+id/update_pointPerKg_textview"
         android:layout_marginStart="15dp"
         android:layout_marginTop="64dp"
@@ -87,10 +90,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/addButton"
         android:layout_below="@id/update_description_input"
         android:id="@+id/update_material_save_button"
-        android:layout_toRightOf="@+id/update_material_back_button"
+        android:layout_toEndOf="@+id/update_material_back_button"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="50dp"
         android:onClick="UpdateMaterial"

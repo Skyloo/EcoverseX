@@ -32,9 +32,7 @@ public class AdminProfileActivity extends AppCompatActivity {
     //Add Database Stuff
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
     private DatabaseReference databaseReference;
-    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +85,7 @@ public class AdminProfileActivity extends AppCompatActivity {
                 if (!admin_name_input.equals(null) && (!admin_phone_input.equals(null))){
                     Admin admin = new Admin(adminName, adminPhone);
                     databaseReference.child("admin").child(userID).setValue(admin);
+                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
 
                 }
                 else {

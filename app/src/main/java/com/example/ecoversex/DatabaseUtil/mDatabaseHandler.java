@@ -12,7 +12,7 @@ import com.example.ecoversex.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mDatabaseHandler extends SQLiteOpenHelper {
+/*public class mDatabaseHandler extends SQLiteOpenHelper {
     public mDatabaseHandler(Context context) {
         super(context, mUtil.DATABASE_NAME, null, mUtil.DATABASE_VERSION);
     }
@@ -111,4 +111,4 @@ public class mDatabaseHandler extends SQLiteOpenHelper {
                 new String[]{String.valueOf(material.getMaterialID())});
     }
 
-}
+}*/

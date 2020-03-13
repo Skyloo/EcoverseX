@@ -2,13 +2,14 @@ package com.example.ecoversex.AdminActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ecoversex.DatabaseUtil.mDatabaseHandler;
+//import com.example.ecoversex.DatabaseUtil.mDatabaseHandler;
 import com.example.ecoversex.HelperClass.Material;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,11 +28,10 @@ public class UpdateMaterialActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private DatabaseReference databaseReference;
-    private DatabaseReference mDatabase;
 
-    mDatabaseHandler mdatabaseHandler;
+   // mDatabaseHandler mdatabaseHandler;
 
-    public void UpdateMaterial(View view) {
+   /* public void UpdateMaterial(View view) {
         String materialname = update_materialname_input.toString().trim();
         String description = update_description_input.toString().trim();
         String pointPerKg = update_pointPerKg_input.toString().trim();
@@ -43,6 +43,8 @@ public class UpdateMaterialActivity extends AppCompatActivity {
             mdatabaseHandler.AddMaterial(material);
             mdatabaseHandler.close();
             finish();
+            startActivity(new Intent(getApplicationContext(), AdminViewMaterialActivity.class));
+            Toast.makeText(getApplicationContext(), "New Material Added.", Toast.LENGTH_LONG).show();
         }
         else {
             if (TextUtils.isEmpty(update_materialname_input.toString())) {
@@ -55,6 +57,10 @@ public class UpdateMaterialActivity extends AppCompatActivity {
                 Toast.makeText(UpdateMaterialActivity.this, "Please key in your material points per kg...", Toast.LENGTH_LONG).show();
             }
         }
+    }*/
+    public void BackButton(View view){
+        startActivity(new Intent(getApplicationContext(), AdminViewMaterialActivity.class));
+        Toast.makeText(getApplicationContext(), "Return to View Material Page", Toast.LENGTH_LONG).show();
     }
 
     @Override

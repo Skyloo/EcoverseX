@@ -11,22 +11,32 @@ import android.widget.Toast;
 import com.example.ecoversex.GeneralActivity.MainActivity;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminActivity extends AppCompatActivity {
 
-    private FirebaseAuth firebaseAuth;
-    private FirebaseAuth.AuthStateListener authStateListener;
     Button admin_profile_button, admin_view_material_button, admin_view_submission_button, admin_logout_button;
+
+    //Add Database Stuff
+    private FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
         admin_profile_button = (Button)findViewById(R.id.admin_profile_button);
         admin_view_material_button = (Button) findViewById(R.id.admin_view_material_button);
         admin_view_submission_button = (Button) findViewById(R.id.admin_view_submission_button);
         admin_logout_button = (Button) findViewById(R.id.admin_logout_button);
+
+
 
         admin_profile_button.setOnClickListener(new View.OnClickListener() {
             @Override

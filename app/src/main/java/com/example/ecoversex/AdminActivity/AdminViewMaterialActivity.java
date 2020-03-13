@@ -12,9 +12,10 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.ecoversex.DatabaseUtil.mDatabaseHandler;
+//import com.example.ecoversex.DatabaseUtil.mDatabaseHandler;
 import com.example.ecoversex.HelperClass.Material;
 import com.example.ecoversex.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -24,9 +25,10 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
     ListView admin_material_list;
 
     Material material;
-    mDatabaseHandler mdatabaseHandler;
+    //mDatabaseHandler mdatabaseHandler;
+    private FirebaseAuth firebaseAuth;
 
-    public void GetAllMaterial() {
+    /*public void GetAllMaterial() {
         material = null;
         List<Material> materialList = mdatabaseHandler.GetAllMaterial();
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, materialList);
@@ -44,7 +46,7 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         GetAllMaterial();
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +58,9 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
         admin_delete_material_button = (Button) findViewById(R.id.admin_delete_material_button);
         admin_material_list = (ListView)findViewById(R.id.admin_material_list);
 
-        admin_material_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        /*admin_material_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 material = (Material) admin_material_list.getItemAtPosition(position);
@@ -88,6 +92,6 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
 
                 }
             }
-        });
+        });*/
     }
 }
