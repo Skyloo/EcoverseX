@@ -25,49 +25,16 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AddMaterialActivity extends AppCompatActivity {
 
-    /*private static final String TAG = "Add to Database";*/
+    private static final String TAG = "Add to Database";
 
     private Button material_back_button, material_save_button;
-    EditText name_input, description_input, pointPerKg_input;
+    EditText materialid_input,materialname_input, description_input, pointPerKg_input;
     private String userID, materialID;
 
+    //Firebase
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-
-    //mDatabaseHandler mdatabaseHandler;
-
-    /*public void AddMaterial(View view) {
-        if (!name_input.equals(null) && (!description_input.equals(null) && (!pointPerKg_input.equals(null)))) {
-            String materialname = name_input.toString().trim();
-            String description = description_input.toString().trim();
-            String pointPerKg = pointPerKg_input.toString().trim();
-
-            Material material = new Material(materialname, description, pointPerKg);
-            material.setMaterialname(materialname);
-            material.setDescription(description);
-            material.setPointPerKg(pointPerKg);
-            mdatabaseHandler.AddMaterial(material);
-            mdatabaseHandler.close();
-            finish();
-        } else {
-            if (TextUtils.isEmpty(name_input.toString())) {
-                Toast.makeText(AddMaterialActivity.this, "Please key in your material name...", Toast.LENGTH_LONG).show();
-            }
-            if (TextUtils.isEmpty(description_input.toString())) {
-                Toast.makeText(AddMaterialActivity.this, "Please key in your material description...", Toast.LENGTH_LONG).show();
-            }
-            if (TextUtils.isEmpty(pointPerKg_input.toString())) {
-                Toast.makeText(AddMaterialActivity.this, "Please key in your material points per kg...", Toast.LENGTH_LONG).show();
-            }
-        }
-    }*/
-
-    public void BackButton(View view){
-        startActivity(new Intent(getApplicationContext(), AdminViewMaterialActivity.class));
-        Toast.makeText(getApplicationContext(), "View Materials", Toast.LENGTH_LONG).show();
-    }
-
 
 
     @Override
@@ -77,18 +44,20 @@ public class AddMaterialActivity extends AppCompatActivity {
 
         material_back_button = (Button) findViewById(R.id.material_back_button);
         material_save_button = (Button) findViewById(R.id.material_save_button);
-        name_input = (EditText) findViewById(R.id.materialname_input);
+        materialid_input = (EditText) findViewById(R.id.materialid_input);
+        materialname_input = (EditText) findViewById(R.id.materialname_input);
         description_input = (EditText) findViewById(R.id.description_input);
         pointPerKg_input = (EditText) findViewById(R.id.pointPerKg_input);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
         //Materials using firebase
-        /*firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        userID = user.getUid();*/
+        userID = user.getUid();
 
-        /*databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
                 //Whenever data is updated
@@ -99,13 +68,23 @@ public class AddMaterialActivity extends AppCompatActivity {
                 //Failed to read value
                 Log.w(TAG, "Failed to read value", databaseError.toException());
             }
-        });*/
+        });
 
-        /*material_save_button.setOnClickListener(new View.OnClickListener() {
+        //Button Functions
+        material_back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), AdminViewMaterialActivity.class));
+                Toast.makeText(getApplicationContext(), "View Materials", Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        material_save_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // firebase save object
-                String materialID = material_id_input.getText().toString();
+                String materialID = materialid_input.getText().toString();
                 String materialname = materialname_input.getText().toString();
                 String description = description_input.getText().toString();
                 String pointPerKg = pointPerKg_input.getText().toString();
@@ -114,13 +93,15 @@ public class AddMaterialActivity extends AppCompatActivity {
                         "Description : " + description + "\n" + "Point Per Kg : " + pointPerKg);
 
                 // checking input
-                if (!material_id_input.equals(null) && (!materialname_input.equals(null) && (!description_input.equals(null) && (!pointPerKg_input.equals(null))){
+                if (!materialid_input.equals(null) && (!materialname_input.equals(null) && (!description_input.equals(null) && (!pointPerKg_input.equals(null)))))
+                {
                     Material material = new Material(materialname, description, pointPerKg);
                     databaseReference.child("material").child(materialID).setValue(material);
                     startActivity(new Intent(getApplicationContext(), AdminActivity.class));
 
                 }
-                else {
+                else{
+
                     if (TextUtils.isEmpty(materialID)){
                         Toast.makeText(getApplicationContext(), "Please key in material ID...", Toast.LENGTH_LONG).show();
                     }
@@ -136,10 +117,7 @@ public class AddMaterialActivity extends AppCompatActivity {
 
                 }
             }
-        });*/
-
-
-
+        });
 
     }
 }

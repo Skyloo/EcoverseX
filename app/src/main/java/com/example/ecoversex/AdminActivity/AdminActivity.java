@@ -22,7 +22,6 @@ public class AdminActivity extends AppCompatActivity {
     //Add Database Stuff
     private FirebaseAuth firebaseAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,14 +29,14 @@ public class AdminActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-
+        //Components
         admin_profile_button = (Button)findViewById(R.id.admin_profile_button);
         admin_view_material_button = (Button) findViewById(R.id.admin_view_material_button);
         admin_view_submission_button = (Button) findViewById(R.id.admin_view_submission_button);
         admin_logout_button = (Button) findViewById(R.id.admin_logout_button);
 
 
-
+        //Button Functions
         admin_profile_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

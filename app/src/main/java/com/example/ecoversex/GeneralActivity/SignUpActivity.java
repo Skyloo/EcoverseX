@@ -90,7 +90,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-        loadingBar.setTitle("Create Account");
+        /*loadingBar.setTitle("Create Account");
         loadingBar.setMessage("Please wait, we are checking the credentials.");
         loadingBar.setCanceledOnTouchOutside(false);
         loadingBar.show();

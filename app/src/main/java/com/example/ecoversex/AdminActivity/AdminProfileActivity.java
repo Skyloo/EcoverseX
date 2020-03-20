@@ -29,7 +29,7 @@ public class AdminProfileActivity extends AppCompatActivity {
     EditText admin_name_input, admin_phone_input;
     private String userID;
 
-    //Add Database Stuff
+    //Firebase
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
@@ -39,11 +39,13 @@ public class AdminProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_profile);
 
+        //Components
         admin_profile_back_button = (Button) findViewById(R.id.admin_profile_back_button);
         admin_profile_save_button = (Button) findViewById(R.id.admin_profile_save_button);
         admin_name_input = (EditText) findViewById(R.id.admin_name_input);
         admin_phone_input = (EditText) findViewById(R.id.admin_phone_input);
 
+        //Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
@@ -63,6 +65,7 @@ public class AdminProfileActivity extends AppCompatActivity {
             }
         });
 
+        //Button Functions
         admin_profile_back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

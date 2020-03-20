@@ -1,5 +1,7 @@
 package com.example.ecoversex.AdminActivity;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,66 +18,76 @@ import android.widget.Toast;
 import com.example.ecoversex.HelperClass.Material;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdminViewMaterialActivity extends AppCompatActivity {
 
-    Button admin_add_material_button, admin_update_material_button,admin_delete_material_button;
+    Button admin_add_material_button, admin_update_material_button, admin_delete_material_button;
     ListView admin_material_list;
 
+    //Aggregation of Material
     Material material;
-    //mDatabaseHandler mdatabaseHandler;
-    private FirebaseAuth firebaseAuth;
 
-    /*public void GetAllMaterial() {
-        material = null;
-        List<Material> materialList = mdatabaseHandler.GetAllMaterial();
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, materialList);
-        admin_material_list.setAdapter(arrayAdapter);
-    }
+    //Firebase
+    DatabaseReference materialRef;
 
-    public void DeleteButton(){
-        if (material!=null){
-            mdatabaseHandler.DeleteMaterial(material);
-            GetAllMaterial();
-        }
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        GetAllMaterial();
-    }*/
+    //Database
+    ArrayList<String> materialList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_material);
 
-        admin_add_material_button = (Button) findViewById(R.id.admin_add_material_button);
+        /*admin_add_material_button = (Button) findViewById(R.id.admin_add_material_button);
         admin_update_material_button = (Button) findViewById(R.id.admin_update_material_button);
-        admin_delete_material_button = (Button) findViewById(R.id.admin_delete_material_button);
+        admin_delete_material_button = (Button) findViewById(R.id.admin_delete_material_button);*/
         admin_material_list = (ListView)findViewById(R.id.admin_material_list);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        materialRef = FirebaseDatabase.getInstance().getReference("material").getParent();
 
-        /*admin_material_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        final ArrayAdapter<String> materialAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,materialList);
+        admin_material_list.setAdapter(materialAdapter);
+        materialRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                material = (Material) admin_material_list.getItemAtPosition(position);
-                for (int i = 0; i < admin_material_list.getChildCount(); i++) {
-                    if (position == 1) {
-                        admin_material_list.getChildAt(i).setBackgroundColor(Color.GRAY);
-                    } else {
-                        admin_material_list.getChildAt(i).setBackgroundColor(Color.TRANSPARENT);
-                    }
-                }
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                String mValue = dataSnapshot.getValue(String.class);
+                materialList.add(mValue);
+                materialAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                materialAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
-        GetAllMaterial();*/
 
-        admin_add_material_button.setOnClickListener(new View.OnClickListener() {
+        /*admin_add_material_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddMaterialActivity.class);
@@ -92,6 +104,6 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
 
                 }
             }
-        });
+        });*/
     }
 }

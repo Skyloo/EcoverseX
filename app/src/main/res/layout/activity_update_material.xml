@@ -92,11 +92,10 @@
         android:layout_height="wrap_content"
         android:text="@string/addButton"
         android:layout_below="@id/update_description_input"
-        android:id="@+id/update_material_save_button"
+        android:id="@+id/update_material_button"
         android:layout_toEndOf="@+id/update_material_back_button"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="50dp"
-        android:onClick="UpdateMaterial"
         android:background="@drawable/transparentbackground"
         android:textColor="@color/colorPrimary"/>
 
