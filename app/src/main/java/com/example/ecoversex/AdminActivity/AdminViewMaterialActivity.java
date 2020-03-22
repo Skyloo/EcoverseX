@@ -24,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,47 +39,42 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
 
     //Firebase
     DatabaseReference materialRef;
+    FirebaseDatabase firebaseDatabase;
+    private FirebaseAuth firebaseAuth;
 
-    //Database
-    ArrayList<String> materialList = new ArrayList<>();
+    //Database ArrayList
+    ArrayList<Material> materialList;
+    ArrayAdapter<Material> materialAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_material);
 
-        /*admin_add_material_button = (Button) findViewById(R.id.admin_add_material_button);
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        admin_add_material_button = (Button) findViewById(R.id.admin_add_material_button);
         admin_update_material_button = (Button) findViewById(R.id.admin_update_material_button);
-        admin_delete_material_button = (Button) findViewById(R.id.admin_delete_material_button);*/
+        admin_delete_material_button = (Button) findViewById(R.id.admin_delete_material_button);
         admin_material_list = (ListView)findViewById(R.id.admin_material_list);
 
-        materialRef = FirebaseDatabase.getInstance().getReference("material").getParent();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        materialRef = firebaseDatabase.getReference("material");
 
-        final ArrayAdapter<String> materialAdapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,materialList);
-        admin_material_list.setAdapter(materialAdapter);
-        materialRef.addChildEventListener(new ChildEventListener() {
+        material = new Material();
+        materialList = new ArrayList<>();
+        materialAdapter = new ArrayAdapter<Material>(this,android.R.layout.simple_list_item_1,materialList);
+
+        materialRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren())
+                {
 
-                String mValue = dataSnapshot.getValue(String.class);
-                materialList.add(mValue);
-                materialAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                materialAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                    material = ds.getValue(Material.class);
+                    materialList.add(material);
+                }
+                admin_material_list.setAdapter(materialAdapter);
             }
 
             @Override
@@ -87,7 +83,7 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
             }
         });
 
-        /*admin_add_material_button.setOnClickListener(new View.OnClickListener() {
+        admin_add_material_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AddMaterialActivity.class);
@@ -104,6 +100,6 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
 
                 }
             }
-        });*/
+        });
     }
 }

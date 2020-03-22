@@ -6,6 +6,8 @@ public class Material {
     private String description;
     private String pointPerKg;
 
+    public Material(){}
+
     public Material(String materialname, String description, String pointPerKg){
         this.materialname = materialname;
         this.description = description;
