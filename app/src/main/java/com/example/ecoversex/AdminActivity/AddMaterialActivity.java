@@ -25,11 +25,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AddMaterialActivity extends AppCompatActivity {
 
-    private static final String TAG = "Add to Database";
+    private static final String TAG = "Add or Update to Database";
 
     private Button material_back_button, material_save_button;
     EditText materialid_input,materialname_input, description_input, pointPerKg_input;
-    private String userID, materialID;
+    private String userID;
 
     //Firebase
     private FirebaseDatabase firebaseDatabase;
@@ -95,7 +95,8 @@ public class AddMaterialActivity extends AppCompatActivity {
                 // checking input
                 if (!materialid_input.equals(null) && (!materialname_input.equals(null) && (!description_input.equals(null) && (!pointPerKg_input.equals(null)))))
                 {
-                    Material material = new Material(materialname, description, pointPerKg);
+                    String id = databaseReference.push().getKey();
+                    Material material = new Material(materialID, materialname, description, pointPerKg);
                     databaseReference.child("material").child(materialID).setValue(material);
                     startActivity(new Intent(getApplicationContext(), AdminActivity.class));
 

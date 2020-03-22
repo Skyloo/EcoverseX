@@ -16,8 +16,6 @@ public class AdminViewSubmissionActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     Button view_submission_back_button;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

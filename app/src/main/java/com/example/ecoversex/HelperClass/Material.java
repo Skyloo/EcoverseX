@@ -2,18 +2,26 @@ package com.example.ecoversex.HelperClass;
 
 public class Material {
 
+    private String materialID;
     private String materialname;
     private String description;
     private String pointPerKg;
 
     public Material(){}
 
-    public Material(String materialname, String description, String pointPerKg){
+    public Material(String materialID, String materialname, String description, String pointPerKg){
+        this.materialID = materialID;
         this.materialname = materialname;
         this.description = description;
         this.pointPerKg = pointPerKg;
     }
 
+    public String getMaterialID() {
+        return materialID;
+    }
+    public void setMaterialID(String materialID) {
+        this.materialID = materialID;
+    }
     public String getMaterialname() {
         return materialname;
     }
@@ -34,7 +42,8 @@ public class Material {
     }
 
     public String toString(){
-        return ("Material Name : " + getMaterialname() +
+        return ("Material ID : " +getMaterialID() +
+                "\nMaterial Name : " + getMaterialname() +
                 "\nDescription : " + getDescription() +
                 "\nPoint Per Kg : " + getPointPerKg());
 
