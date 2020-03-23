@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AddMaterialActivity extends AppCompatActivity {
 
-    private static final String TAG = "Add or Update to Database";
+    private static final String TAG = "Updating Database";
 
     private Button material_back_button, material_save_button;
     EditText materialid_input,materialname_input, description_input, pointPerKg_input;
