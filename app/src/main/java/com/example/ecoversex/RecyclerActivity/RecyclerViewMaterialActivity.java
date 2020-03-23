@@ -1,4 +1,4 @@
-package com.example.ecoversex;
+package com.example.ecoversex.RecyclerActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.ecoversex.HelperClass.Material;
+import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
