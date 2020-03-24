@@ -53,7 +53,7 @@ public class ProposeDialogActivity extends AppCompatActivity {
 
         String materialName = intent.getStringExtra(RecyclerViewMaterialActivity.MATERIAL_NAME);
         String materialId = intent.getStringExtra(RecyclerViewMaterialActivity.MATERIAL_ID);
-        String pointPerKG = intent.getStringExtra(RecyclerViewMaterialActivity.POINT_PER_KG);
+        final String pointPerKG = intent.getStringExtra(RecyclerViewMaterialActivity.POINT_PER_KG);
 
         propose_material_name_textview.setText(materialName);
         propose_material_id_textview.setText(materialId);
