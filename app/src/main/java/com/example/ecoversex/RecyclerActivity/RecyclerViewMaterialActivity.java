@@ -3,12 +3,21 @@ package com.example.ecoversex.RecyclerActivity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.ecoversex.HelperClass.Material;
+import com.example.ecoversex.ProposeDialogActivity;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +29,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class RecyclerViewMaterialActivity extends AppCompatActivity {
+
+    public static final String MATERIAL_ID = "materialID";
+    public static final String MATERIAL_NAME = "materialname";
+    public static final String POINT_PER_KG = "pointPerKg";
 
     ListView material_list;
 
@@ -34,6 +47,7 @@ public class RecyclerViewMaterialActivity extends AppCompatActivity {
     //Database ArrayList
     ArrayList<Material> materialList;
     ArrayAdapter<Material> materialAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,5 +82,21 @@ public class RecyclerViewMaterialActivity extends AppCompatActivity {
 
             }
         });
+
+        material_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Material material = materialList.get(position);
+                Intent intent = new Intent(getApplicationContext(), ProposeDialogActivity.class);
+
+                intent.putExtra(MATERIAL_NAME, material.getMaterialname());
+                intent.putExtra(MATERIAL_ID, material.getMaterialID());
+                intent.putExtra(POINT_PER_KG, material.getPointPerKg());
+
+                startActivity(intent);
+
+            }
+        });
+
     }
 }

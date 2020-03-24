@@ -14,10 +14,44 @@
         android:layout_marginTop="5dp"
         />
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/propose_submission_textview"
+        android:id="@+id/propose_material_name_textview"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/propose_material_name_textview"
+        android:id="@+id/propose_material_id_textview"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/propose_material_id_textview"
+        android:id="@+id/propose_material_point_textview"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="3"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/propose_material_point_textview"
         android:id="@+id/propose_date_edittext"
         android:layout_marginTop="50dp"
         android:layout_marginRight="10dp"
@@ -61,6 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/weight_edittext"
+        android:id="@+id/confirm_submission_button"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

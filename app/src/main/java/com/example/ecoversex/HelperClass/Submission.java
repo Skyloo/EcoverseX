@@ -13,14 +13,12 @@ public class Submission {
     public Submission() {
     }
 
-    public Submission(String submissionID, String proposedDate, String actualDate, String weight, String pointAwarded, Material material) {
+    public Submission(String submissionID, String proposedDate, String actualDate, String weight, String pointAwarded) {
         this.submissionID = submissionID;
         this.proposedDate = proposedDate;
         this.actualDate = actualDate;
         this.weight = weight;
         this.pointAwarded = pointAwarded;
-        this.material = material;
-        this.user = user;
     }
 
     public String getSubmissionID() {
