@@ -49,10 +49,10 @@
         android:textStyle="bold"
         />
 
-    <EditText
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/usertype_input"
+        android:id="@+id/login_usertype_spinner"
         android:layout_below="@+id/login_password_input"
         android:layout_marginTop="6dp"
         android:background="@drawable/input_design"
@@ -60,7 +60,6 @@
         android:textColorHint="@color/colorPrimary"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:hint="User type"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:padding="20dp"/>
@@ -70,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/usertype_input"
+        android:layout_below="@id/login_usertype_spinner"
         android:layout_marginTop="10dp"
         >
 

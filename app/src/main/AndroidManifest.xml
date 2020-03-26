@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProposeDialogActivity"></activity>
+        <activity android:name=".CollectorActivity.CollectorActivity"></activity>
+        <activity android:name=".RecyclerActivity.ProposeDialogActivity" />
         <activity android:name=".RecyclerActivity.RecyclerProfileActivity" />
         <activity android:name=".RecyclerActivity.RecyclerActivity" />
         <activity android:name=".RecyclerActivity.RecyclerViewSubmissionActivity" />

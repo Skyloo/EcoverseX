@@ -80,7 +80,7 @@
         android:textSize="24sp"
         android:text=""
         android:layout_below="@+id/recycler_phone_textview"
-        android:id="@+id/recycler_show_point_textview"
+        android:id="@+id/recycler_point_input"
         android:layout_toRightOf="@+id/recycler_point_textview"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"

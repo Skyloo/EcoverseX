@@ -39,7 +39,7 @@ public class RecyclerActivity extends AppCompatActivity {
         recycler_profile_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), AdminProfileActivity.class));
+                startActivity(new Intent(getApplicationContext(), RecyclerProfileActivity.class));
                 Toast.makeText(getApplicationContext(), "Admin Profile Page", Toast.LENGTH_SHORT).show();
             }
         });

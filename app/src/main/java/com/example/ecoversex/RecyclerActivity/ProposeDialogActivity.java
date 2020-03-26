@@ -1,4 +1,4 @@
-package com.example.ecoversex;
+package com.example.ecoversex.RecyclerActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecoversex.HelperClass.Submission;
+import com.example.ecoversex.R;
 import com.example.ecoversex.RecyclerActivity.RecyclerViewMaterialActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,6 +47,8 @@ public class ProposeDialogActivity extends AppCompatActivity {
         propose_material_id_textview = (TextView) findViewById(R.id.propose_material_id_textview);
         propose_material_point_textview = (TextView) findViewById(R.id.propose_material_point_textview);
 
+
+
         FirebaseUser user = firebaseAuth.getCurrentUser();
         userID = user.getUid();
 
@@ -60,7 +63,7 @@ public class ProposeDialogActivity extends AppCompatActivity {
         propose_material_point_textview.setText(pointPerKG + "points");
 
         //Connecting submission to materialId
-        subReference = FirebaseDatabase.getInstance().getReference("submission").child(materialId);
+        subReference = FirebaseDatabase.getInstance().getReference("submission").child(userID).child(materialId);
 
         confirm_submission_button.setOnClickListener(new View.OnClickListener() {
             @Override

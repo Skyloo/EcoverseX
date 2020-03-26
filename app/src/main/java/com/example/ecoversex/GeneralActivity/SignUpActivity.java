@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.ecoversex.R;
@@ -26,7 +28,6 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ProgressDialog loadingBar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
         register_password_input = (EditText) findViewById(R.id.register_password_input);
         firebaseAuth = FirebaseAuth.getInstance();
         loadingBar = new ProgressDialog(this);
+
 
         register_register_btn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,4 +6,10 @@
     <string name="points_per_kg">Points Per Kg :</string>
     <string name="addButton">Save</string>
 
+    <string-array name="login_usertype">
+        <item>admin</item>
+        <item>recycler</item>
+        <item>collector</item>
+    </string-array>
+
 </resources>
