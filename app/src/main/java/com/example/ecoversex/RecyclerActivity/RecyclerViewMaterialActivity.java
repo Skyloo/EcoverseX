@@ -41,6 +41,12 @@ public class RecyclerViewMaterialActivity extends AppCompatActivity {
     ArrayList<Material> materialList;
     ArrayAdapter<Material> materialAdapter;
 
+    @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        //Refresh your stuff here
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +69,6 @@ public class RecyclerViewMaterialActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren())
                 {
-
                     material = ds.getValue(Material.class);
                     materialList.add(material);
                 }

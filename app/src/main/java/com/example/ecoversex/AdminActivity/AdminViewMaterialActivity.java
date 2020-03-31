@@ -51,6 +51,13 @@ public class AdminViewMaterialActivity extends AppCompatActivity {
     ArrayAdapter<Material> materialAdapter;
 
     @Override
+    public void onResume()
+    {  // After a pause OR at startup
+        super.onResume();
+        //Refresh your stuff here
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view_material);

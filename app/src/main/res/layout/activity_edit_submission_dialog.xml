@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecyclerActivity.EditSubmissionDialogActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Submission"
+        android:textSize="34sp"
+        android:id="@+id/edit_submission_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_submission_textview"
+        android:id="@+id/edit_submissionid_textview"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_submissionid_textview"
+        android:id="@+id/edit_proposedDate_textview"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_proposedDate_textview"
+        android:id="@+id/edit_materialName_textview"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="3"/>
+
+    <TextView
+        android:id="@+id/edit_weight_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_materialName_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:text="4"
+        android:textSize="22sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_weight_textview"
+        android:id="@+id/edit_submission_delete_button"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:padding="15dp"
+        android:background="@drawable/transparentbackground"
+        android:text="Delete" />
+
+
+
+
+</RelativeLayout>
