@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecyclerActivity.EditSubmissionDialogActivity"></activity>
+        <activity android:name=".CollectorActivity.CollectorViewProposedSubmissionActivity"></activity>
+        <activity android:name=".CollectorActivity.ConfirmSubmissionDialogActivity" />
+        <activity android:name=".RecyclerViewLocationActivity" />
+        <activity android:name=".CollectorActivity.CollectorViewSubmissionActivity" />
+        <activity android:name=".CollectorProfileActivity" />
+        <activity android:name=".RecyclerActivity.EditSubmissionDialogActivity" />
         <activity android:name=".CollectorActivity.CollectorActivity" />
         <activity android:name=".RecyclerActivity.ProposeDialogActivity" />
         <activity android:name=".RecyclerActivity.RecyclerProfileActivity" />

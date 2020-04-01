@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecyclerActivity.EditSubmissionDialogActivity">
+    tools:context=".CollectorActivity.ConfirmSubmissionDialogActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete Submission"
+        android:text="Confirm Submission"
         android:textSize="34sp"
-        android:id="@+id/edit_submission_textview"
+        android:id="@+id/confirm_submission_textview"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
@@ -20,8 +20,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_submission_textview"
-        android:id="@+id/edit_submissionid_textview"
+        android:layout_below="@+id/confirm_submission_textview"
+        android:id="@+id/confirm_submissionid_textview"
         android:layout_marginTop="20dp"
         android:textSize="22sp"
         android:layout_marginRight="10dp"
@@ -32,8 +32,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_submissionid_textview"
-        android:id="@+id/edit_proposedDate_textview"
+        android:layout_below="@+id/confirm_submissionid_textview"
+        android:id="@+id/confirm_proposedDate_textview"
         android:layout_marginTop="20dp"
         android:textSize="22sp"
         android:layout_marginRight="10dp"
@@ -44,8 +44,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_proposedDate_textview"
-        android:id="@+id/edit_materialName_textview"
+        android:layout_below="@+id/confirm_proposedDate_textview"
+        android:id="@+id/confirm_materialName_textview"
         android:layout_marginTop="20dp"
         android:textSize="22sp"
         android:layout_marginRight="10dp"
@@ -54,10 +54,10 @@
         android:textAlignment="center"/>
 
     <TextView
-        android:id="@+id/edit_weight_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_materialName_textview"
+        android:id="@+id/confirm_weight_textview"
+        android:layout_below="@+id/confirm_materialName_textview"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
@@ -65,19 +65,28 @@
         android:textSize="22sp"
         android:textAlignment="center"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm_status_textview"
+        android:layout_below="@+id/confirm_weight_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:text="5"
+        android:textSize="22sp"
+        android:textAlignment="center"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_weight_textview"
-        android:id="@+id/edit_submission_delete_button"
+        android:layout_below="@+id/confirm_status_textview"
+        android:id="@+id/confirm_submission_button"
         android:layout_marginTop="50dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:padding="15dp"
         android:background="@drawable/transparentbackground"
-        android:text="Delete" />
-
-
-
+        android:text="Confirm" />
 
 </RelativeLayout>
