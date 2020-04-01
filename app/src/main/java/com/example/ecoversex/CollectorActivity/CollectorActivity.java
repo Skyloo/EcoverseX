@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.ecoversex.CollectorProfileActivity;
 import com.example.ecoversex.GeneralActivity.MainActivity;
 import com.example.ecoversex.R;
+import com.example.ecoversex.RecyclerActivity.RecyclerProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class CollectorActivity extends AppCompatActivity {
@@ -38,7 +39,7 @@ public class CollectorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(), CollectorProfileActivity.class));
+                startActivity(new Intent(getApplicationContext(), RecyclerProfileActivity.class));
                 Toast.makeText(getApplicationContext(), "Collector Profile Page", Toast.LENGTH_LONG).show();
             }
         });

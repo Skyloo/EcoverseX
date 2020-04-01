@@ -87,6 +87,28 @@
         android:layout_marginRight="15dp"
         android:textStyle="bold"/>
 
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:textSize="28sp"
+        android:text="Address : "
+        android:layout_below="@+id/recycler_point_textview"
+        android:id="@+id/recycler_address_textview"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:id="@+id/recycler_address_input"
+        android:layout_width="224dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/recycler_point_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/recycler_address_textview"
+        android:text=""
+        android:textSize="22sp" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

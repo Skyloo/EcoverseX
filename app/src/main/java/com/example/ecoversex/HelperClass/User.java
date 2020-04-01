@@ -1,19 +1,21 @@
 package com.example.ecoversex.HelperClass;
 
-public abstract class User {
+public class User {
 
     private String userName;
     private String phoneNo;
     private String address;
     private String ecoPoints;
-    private Material material;
 
     public User() {
     }
 
-    public User(String userName, String phoneNo, String address, String ecoPoints, Material material) {
+    public User(String userName, String phoneNo, String address, String ecoPoints) {
         this.userName = userName;
         this.phoneNo = phoneNo;
+        this.address = address;
+        this.ecoPoints = ecoPoints;
+
     }
 
     public String getUserName() {
@@ -32,10 +34,28 @@ public abstract class User {
         this.phoneNo = phoneNo;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEcoPoints() {
+        return ecoPoints;
+    }
+
+    public void setEcoPoints(String ecoPoints) {
+        this.ecoPoints = ecoPoints;
+    }
+
 
     public String toString(){
         return ("Name : " + getUserName() +
-                "\nPhone No : " + getPhoneNo());
+                "\nPhone No : " + getPhoneNo() +
+                "\nAddress : " + getAddress() +
+                "\nEco Points : " +getEcoPoints());
 
     }
 }

@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ecoversex.HelperClass.Recycler;
+import com.example.ecoversex.HelperClass.CSubmission;
 import com.example.ecoversex.HelperClass.Submission;
 import com.example.ecoversex.HelperClass.User;
 import com.example.ecoversex.R;
@@ -32,6 +32,7 @@ public class ProposeDialogActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     DatabaseReference subReference;
+    DatabaseReference collectorSubRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class ProposeDialogActivity extends AppCompatActivity {
 
         //Connecting submission to materialId
         subReference = FirebaseDatabase.getInstance().getReference("submission").child(userID);
+        collectorSubRef = FirebaseDatabase.getInstance().getReference("proposed_submission");
 
         confirm_submission_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +85,10 @@ public class ProposeDialogActivity extends AppCompatActivity {
                     String point = Integer.toString(pointAwarded);
 
                     Submission submission = new Submission(id, proposeDate, actualDate,materialName, weight, point, status);
+                    CSubmission cSubmission = new CSubmission(id, proposeDate, actualDate, materialName, weight, point, status, userID);
 
                     subReference.child(id).setValue(submission);
+                    collectorSubRef.child(id).setValue(cSubmission);
 
                     Toast.makeText(getApplicationContext(),"Submission Proposed", Toast.LENGTH_LONG).show();
 

@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.ecoversex.HelperClass.CSubmission;
 import com.example.ecoversex.HelperClass.Material;
 import com.example.ecoversex.HelperClass.Submission;
 import com.example.ecoversex.R;
@@ -30,21 +31,24 @@ public class CollectorViewProposedSubmissionActivity extends AppCompatActivity {
     public static final String PROPOSED_DATE = "proposedDate";
     public static final String SUBMISSION_WEIGHT= "weight";
     public static final String STATUS= "status";
+    public static final String USERID = "userID";
+    public static final String POINT = "point";
+    public static final String ACTUAL_DATE = "actualDate";
 
     ListView collector_proposed_submission_list;
 
-    Submission submission;
+    CSubmission cSubmission;
     Material material;
     String userID;
 
     //Firebase
-    DatabaseReference submissionRef;
+    DatabaseReference cSubmissionRef;
     FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
 
     //Database ArrayList
-    ArrayList<Submission> submissionList;
-    ArrayAdapter<Submission> submissionAdapter;
+    ArrayList<CSubmission> cSubmissionList;
+    ArrayAdapter<CSubmission> cSubmissionAdapter;
 
     @Override
     public void onResume()
@@ -66,21 +70,21 @@ public class CollectorViewProposedSubmissionActivity extends AppCompatActivity {
         collector_proposed_submission_list = (ListView) findViewById(R.id.collector_proposed_submission_list);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        submissionRef = firebaseDatabase.getReference("submission");
+        cSubmissionRef = firebaseDatabase.getReference("proposed_submission");
 
-        submission = new Submission();
-        submissionList = new ArrayList<>();
-        submissionAdapter = new ArrayAdapter<Submission>(this,android.R.layout.simple_list_item_1,submissionList);
+        cSubmission = new CSubmission();
+        cSubmissionList = new ArrayList<>();
+        cSubmissionAdapter = new ArrayAdapter<CSubmission>(this, android.R.layout.simple_list_item_1, cSubmissionList);
 
-        submissionRef.addValueEventListener(new ValueEventListener() {
+        cSubmissionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot subsnapshot : dataSnapshot.getChildren()){
 
-                    submission = subsnapshot.getValue(Submission.class);
-                    submissionList.add(submission);
+                    cSubmission = subsnapshot.getValue(CSubmission.class);
+                    cSubmissionList.add(cSubmission);
                 }
-                collector_proposed_submission_list.setAdapter(submissionAdapter);
+                collector_proposed_submission_list.setAdapter(cSubmissionAdapter);
             }
 
             @Override
@@ -92,14 +96,17 @@ public class CollectorViewProposedSubmissionActivity extends AppCompatActivity {
         collector_proposed_submission_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Submission submission = submissionList.get(position);
+                CSubmission cSubmission = cSubmissionList.get(position);
                 Intent intent = new Intent(getApplicationContext(), ConfirmSubmissionDialogActivity.class);
 
-                intent.putExtra(SUBMISSION_ID, submission.getSubmissionID());
-                intent.putExtra(PROPOSED_DATE, submission.getProposedDate());
-                intent.putExtra(MATERIAL_NAME, submission.getMaterialName());
-                intent.putExtra(SUBMISSION_WEIGHT, submission.getWeight());
-                intent.putExtra(STATUS, submission.getStatus());
+                intent.putExtra(SUBMISSION_ID, cSubmission.getSubmissionID());
+                intent.putExtra(PROPOSED_DATE, cSubmission.getProposedDate());
+                intent.putExtra(MATERIAL_NAME, cSubmission.getMaterialName());
+                intent.putExtra(SUBMISSION_WEIGHT, cSubmission.getWeight());
+                intent.putExtra(STATUS, cSubmission.getStatus());
+                intent.putExtra(USERID, cSubmission.getUserID());
+                intent.putExtra(POINT, cSubmission.getPointAwarded());
+                intent.putExtra(ACTUAL_DATE, cSubmission.getActualDate());
 
                 startActivity(intent);
 

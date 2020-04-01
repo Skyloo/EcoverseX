@@ -1,12 +1,16 @@
 package com.example.ecoversex.RecyclerActivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.ecoversex.HelperClass.User;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,12 +26,13 @@ public class RecyclerProfileActivity extends AppCompatActivity {
 
     private String userID;
     Button recycler_profile_edit_button, recycler_profile_save_button;
-    TextView recycler_name_input,recycler_phone_input, recycler_point_input;
+    TextView recycler_name_input,recycler_phone_input, recycler_point_input, recycler_address_input;
 
     //Firebase
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    DatabaseReference userRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,7 @@ public class RecyclerProfileActivity extends AppCompatActivity {
         recycler_name_input = (TextView) findViewById(R.id.recycler_name_input);
         recycler_phone_input = (TextView) findViewById(R.id.recycler_phone_input);
         recycler_point_input = (TextView) findViewById(R.id.recycler_point_input);
+        recycler_address_input = (TextView) findViewById(R.id.recycler_address_input);
 
         //Firebase
         firebaseAuth = FirebaseAuth.getInstance();
@@ -46,6 +52,29 @@ public class RecyclerProfileActivity extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference();
         FirebaseUser user = firebaseAuth.getCurrentUser();
         userID = user.getUid();
+
+        userRef = firebaseDatabase.getReference().child("User").child(userID);
+
+        userRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String userName = dataSnapshot.child("userName").getValue().toString();
+                String phone = dataSnapshot.child("phone").getValue().toString();
+                String point = dataSnapshot.child("ecoPoint").getValue().toString();
+                String address = dataSnapshot.child("address").getValue().toString();
+                recycler_name_input.setText(userName);
+                recycler_phone_input.setText(phone);
+                recycler_point_input.setText(point);
+                recycler_address_input.setText(address);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        recycler_profile_save_button.setActivated(false);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,6 +88,80 @@ public class RecyclerProfileActivity extends AppCompatActivity {
                 Log.w(TAG, "Failed to read value", databaseError.toException());
             }
         });
+
+        recycler_profile_edit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recycler_name_input.setFocusable(true);
+                recycler_name_input.setEnabled(true);
+                recycler_name_input.setClickable(true);
+                recycler_name_input.setFocusableInTouchMode(true);
+
+                recycler_phone_input.setFocusable(true);
+                recycler_phone_input.setEnabled(true);
+                recycler_phone_input.setClickable(true);
+                recycler_phone_input.setFocusableInTouchMode(true);
+
+                recycler_point_input.setFocusable(true);
+                recycler_point_input.setEnabled(true);
+                recycler_point_input.setClickable(true);
+                recycler_point_input.setFocusableInTouchMode(true);
+
+                recycler_address_input.setFocusable(true);
+                recycler_address_input.setEnabled(true);
+                recycler_address_input.setClickable(true);
+                recycler_address_input.setFocusableInTouchMode(true);
+
+                recycler_profile_save_button.setVisibility(View.VISIBLE);
+                recycler_profile_save_button.setActivated(true);
+
+                recycler_profile_edit_button.setVisibility(View.INVISIBLE);
+                recycler_profile_edit_button.setActivated(false);
+
+            }
+        });
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot){
+                //Whenever data is updated
+                Log.d(TAG,"onDataChange : Added information to database: \n" + dataSnapshot.getValue());
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError){
+                //Failed to read value
+                Log.w(TAG, "Failed to read value", databaseError.toException());
+            }
+        });
+
+        recycler_profile_save_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String userName = recycler_name_input.getText().toString().trim();
+                String phone = recycler_phone_input.getText().toString().trim();
+                String address = recycler_address_input.getText().toString().trim();
+                String point = "0";
+
+                Log.d(TAG, "Attempting to submit credentials. \n " + "Name : " + userName + "\n" +
+                        "Phone : " + phone + "\n" + "Address : " + address);
+
+                // checking input
+                if (!recycler_name_input.equals(null) && (!recycler_phone_input.equals(null)) && (!recycler_address_input.equals(null))){
+                    User user = new User(userName, phone, address, point);
+                    databaseReference.child("User").child(userID).setValue(user);
+
+                    recycler_profile_save_button.setVisibility(View.INVISIBLE);
+                    recycler_profile_save_button.setActivated(false);
+
+                    recycler_profile_edit_button.setVisibility(View.VISIBLE);
+                    recycler_profile_edit_button.setActivated(true);
+                }
+
+            }
+        });
+
+
 
 
     }

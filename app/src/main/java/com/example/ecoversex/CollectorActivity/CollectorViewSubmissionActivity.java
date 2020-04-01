@@ -59,7 +59,7 @@ public class CollectorViewSubmissionActivity extends AppCompatActivity {
         collector_all_submission_list = (ListView) findViewById(R.id.collector_all_submission_list);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
-        submissionRef = firebaseDatabase.getReference("submission");
+        submissionRef = firebaseDatabase.getReference("completed_submission");
 
         submission = new Submission();
         submissionList = new ArrayList<>();
