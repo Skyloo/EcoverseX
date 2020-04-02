@@ -6,8 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".AdminActivity.AdminViewSubmissionActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/admin_submission_textview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textSize="28sp"
+        android:text="Submissions"/>
+
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="650dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/admin_submission_list"
+        android:layout_below="@+id/admin_submission_textview"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"/>
     
 </RelativeLayout>
