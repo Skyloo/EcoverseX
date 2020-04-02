@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.ecoversex.HelperClass.CompletedSubmission;
 import com.example.ecoversex.HelperClass.Material;
 import com.example.ecoversex.HelperClass.Submission;
 import com.example.ecoversex.R;
@@ -27,7 +28,7 @@ public class CollectorViewSubmissionActivity extends AppCompatActivity {
 
     ListView collector_all_submission_list;
 
-    Submission submission;
+    CompletedSubmission completedSubmission;
     Material material;
     String userID;
 
@@ -37,8 +38,8 @@ public class CollectorViewSubmissionActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
 
     //Database ArrayList
-    ArrayList<Submission> submissionList;
-    ArrayAdapter<Submission> submissionAdapter;
+    ArrayList<CompletedSubmission> submissionList;
+    ArrayAdapter<CompletedSubmission> submissionAdapter;
 
     @Override
     public void onResume()
@@ -61,17 +62,17 @@ public class CollectorViewSubmissionActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         submissionRef = firebaseDatabase.getReference("completed_submission");
 
-        submission = new Submission();
+        completedSubmission = new CompletedSubmission();
         submissionList = new ArrayList<>();
-        submissionAdapter = new ArrayAdapter<Submission>(this,android.R.layout.simple_list_item_1,submissionList);
+        submissionAdapter = new ArrayAdapter<CompletedSubmission>(this,android.R.layout.simple_list_item_1,submissionList);
 
         submissionRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot subsnapshot : dataSnapshot.getChildren()){
 
-                    submission = subsnapshot.getValue(Submission.class);
-                    submissionList.add(submission);
+                    completedSubmission = subsnapshot.getValue(CompletedSubmission.class);
+                    submissionList.add(completedSubmission);
                 }
                 collector_all_submission_list.setAdapter(submissionAdapter);
             }

@@ -90,7 +90,6 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
             }
         });
 
-
         //Change the status to "confirmed" and add points to user
         confirm_submission_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,17 +101,15 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
                 String nTotalPoint = Integer.toString(totalPoint);
 
                 Submission submission = new Submission(submissionId, proposedDate, actualDate,materialName, submissionWeight, point, status);
-                CSubmission cSubmission = new CSubmission(submissionId, proposedDate, actualDate, materialName, submissionWeight, point, status, userId);
                 CompletedSubmission completedSubmission = new CompletedSubmission(submissionId, proposedDate, actualDate, materialName, submissionWeight, point, status, userId);
 
                 subReference.child(submissionId).setValue(submission);
-                collectorSubRef.child(submissionId).setValue(cSubmission);
+                collectorSubRef.child(submissionId).removeValue();
                 completedSubRef.child(submissionId).setValue(completedSubmission);
                 userRef.child("ecoPoint").setValue(nTotalPoint);
 
                 startActivity(new Intent(getApplicationContext(), CollectorActivity.class));
                 Toast.makeText(getApplicationContext(), "Submission confirmed and received.", Toast.LENGTH_LONG).show();
-
 
             }
         });

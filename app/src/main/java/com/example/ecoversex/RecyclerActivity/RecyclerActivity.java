@@ -8,16 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.ecoversex.AdminActivity.AdminProfileActivity;
-import com.example.ecoversex.AdminActivity.AdminViewMaterialActivity;
-import com.example.ecoversex.AdminActivity.AdminViewSubmissionActivity;
 import com.example.ecoversex.GeneralActivity.MainActivity;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RecyclerActivity extends AppCompatActivity {
 
-    Button recycler_profile_button, recycler_view_material_button, recycler_view_submission_button, recycler_logout_button;
+    Button recycler_profile_button, recycler_view_material_button, recycler_view_submission_button, recycler_logout_button ,recycler_redemption_button;
 
     //Add Database Stuff
     private FirebaseAuth firebaseAuth;
@@ -34,6 +31,7 @@ public class RecyclerActivity extends AppCompatActivity {
         recycler_view_material_button = (Button) findViewById(R.id.recycler_view_material_button);
         recycler_view_submission_button = (Button) findViewById(R.id.recycler_view_submission_button);
         recycler_logout_button = (Button) findViewById(R.id.recycler_logout_button);
+        recycler_redemption_button = (Button) findViewById(R.id.recycler_redemption_button);
 
         //Button Functions
         recycler_profile_button.setOnClickListener(new View.OnClickListener() {
@@ -66,6 +64,14 @@ public class RecyclerActivity extends AppCompatActivity {
                 firebaseAuth.signOut();
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 Toast.makeText(getApplicationContext(), "Logout Successful!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        recycler_redemption_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), RecyclerRedemptionPage.class));
+                Toast.makeText(getApplicationContext(), "Redemption Page.", Toast.LENGTH_LONG).show();
             }
         });
     }

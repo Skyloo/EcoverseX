@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.ecoversex.CollectorProfileActivity;
 import com.example.ecoversex.GeneralActivity.MainActivity;
 import com.example.ecoversex.R;
 import com.example.ecoversex.RecyclerActivity.RecyclerProfileActivity;

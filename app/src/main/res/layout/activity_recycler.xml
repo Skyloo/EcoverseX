@@ -75,10 +75,23 @@
         android:padding="20dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="Redemption"
+        android:textColor="@color/colorPrimary"
+        android:background="@drawable/transparentbackground"
+        android:id="@+id/recycler_redemption_button"
+        android:layout_below="@id/recycler_view_submission_button"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="50dp"
         android:text="Logout"
         android:background="@drawable/transparentbackground"
         android:id="@+id/recycler_logout_button"
-        android:layout_below="@id/recycler_view_submission_button"/>
+        android:layout_below="@id/recycler_redemption_button"/>
 
 </RelativeLayout>

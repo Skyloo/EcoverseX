@@ -21,12 +21,12 @@
         android:textSize="28sp"
         android:text="Name : "
         android:id="@+id/recycler_name_textview"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="15dp"
         android:layout_below="@+id/recycler_profile_page_textview"/>
 
     <TextView
-        android:id="@+id/recycler_name_input"
+        android:id="@+id/recycler_name_tv"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recycler_profile_page_textview"
@@ -39,6 +39,20 @@
         android:enabled="false"
         android:textStyle="bold"/>
 
+    <EditText
+        android:id="@+id/recycler_name_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_profile_page_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/recycler_name_textview"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:enabled="false"
+        android:visibility="invisible"/>
+
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -46,12 +60,11 @@
         android:text="Phone : "
         android:layout_below="@+id/recycler_name_textview"
         android:id="@+id/recycler_phone_textview"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="35dp"
         android:layout_marginLeft="15dp" />
 
-
     <TextView
-        android:id="@+id/recycler_phone_input"
+        android:id="@+id/recycler_phone_tv"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/recycler_name_input"
@@ -63,6 +76,21 @@
         android:textAlignment="center"
         android:enabled="false"
         android:textStyle="bold"/>
+
+
+    <EditText
+        android:id="@+id/recycler_phone_input"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler_name_input"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/recycler_phone_textview"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:enabled="false"
+        android:visibility="invisible"/>
 
     <TextView
         android:layout_width="150dp"
@@ -80,12 +108,26 @@
         android:textSize="24sp"
         android:text=""
         android:layout_below="@+id/recycler_phone_textview"
-        android:id="@+id/recycler_point_input"
+        android:id="@+id/recycler_point_tv"
         android:layout_toRightOf="@+id/recycler_point_textview"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp"
         android:textStyle="bold"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text=""
+        android:layout_below="@+id/recycler_phone_textview"
+        android:id="@+id/recycler_point_input"
+        android:layout_toRightOf="@+id/recycler_point_textview"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:visibility="invisible"
+        android:enabled="false"/>
 
     <TextView
         android:layout_width="150dp"
@@ -98,6 +140,18 @@
         android:layout_marginLeft="15dp" />
 
     <TextView
+        android:id="@+id/recycler_address_tv"
+        android:layout_width="224dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/recycler_point_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@+id/recycler_address_textview"
+        android:text=""
+        android:textSize="22sp"/>
+
+    <EditText
         android:id="@+id/recycler_address_input"
         android:layout_width="224dp"
         android:layout_height="150dp"
@@ -107,7 +161,9 @@
         android:layout_marginRight="15dp"
         android:layout_toRightOf="@+id/recycler_address_textview"
         android:text=""
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:enabled="false"
+        android:visibility="invisible"/>
 
     <Button
         android:layout_width="match_parent"

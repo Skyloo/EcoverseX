@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
                                             startActivity(new Intent(getApplicationContext(), CollectorActivity.class));
                                         }*/
                                         Toast.makeText(LoginActivity.this, "Recycler Login Successful!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(), CollectorActivity.class));
+                                        startActivity(new Intent(getApplicationContext(), RecyclerActivity.class));
 
                                     } else {
                                         Toast.makeText(LoginActivity.this, "Please verify your email address.", Toast.LENGTH_LONG).show();

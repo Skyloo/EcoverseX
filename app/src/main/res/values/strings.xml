@@ -11,5 +11,6 @@
         <item>recycler</item>
         <item>collector</item>
     </string-array>
+    <string name="title_activity_recycler_view_location">Map</string>
 
 </resources>

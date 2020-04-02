@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.ecoversex.HelperClass.User;
@@ -26,7 +27,9 @@ public class RecyclerProfileActivity extends AppCompatActivity {
 
     private String userID;
     Button recycler_profile_edit_button, recycler_profile_save_button;
-    TextView recycler_name_input,recycler_phone_input, recycler_point_input, recycler_address_input;
+    EditText recycler_name_input,recycler_phone_input, recycler_point_input, recycler_address_input;
+    TextView recycler_name_tv, recycler_phone_tv, recycler_point_tv, recycler_address_tv;
+
 
     //Firebase
     private FirebaseDatabase firebaseDatabase;
@@ -41,10 +44,26 @@ public class RecyclerProfileActivity extends AppCompatActivity {
 
         recycler_profile_edit_button = (Button) findViewById(R.id.recycler_profile_edit_button);
         recycler_profile_save_button = (Button) findViewById(R.id.recycler_profile_save_button);
-        recycler_name_input = (TextView) findViewById(R.id.recycler_name_input);
-        recycler_phone_input = (TextView) findViewById(R.id.recycler_phone_input);
-        recycler_point_input = (TextView) findViewById(R.id.recycler_point_input);
-        recycler_address_input = (TextView) findViewById(R.id.recycler_address_input);
+        recycler_name_input = (EditText) findViewById(R.id.recycler_name_input);
+        recycler_phone_input = (EditText) findViewById(R.id.recycler_phone_input);
+        recycler_point_input = (EditText) findViewById(R.id.recycler_point_input);
+        recycler_address_input = (EditText) findViewById(R.id.recycler_address_input);
+        recycler_name_tv = (TextView) findViewById(R.id.recycler_name_tv);
+        recycler_phone_tv = (TextView) findViewById(R.id.recycler_phone_tv);
+        recycler_point_tv = (TextView) findViewById(R.id.recycler_point_tv);
+        recycler_address_tv = (TextView) findViewById(R.id.recycler_address_tv);
+
+        recycler_name_input.setVisibility(View.INVISIBLE);
+        recycler_name_input.setEnabled(false);
+
+        recycler_phone_input.setVisibility(View.INVISIBLE);
+        recycler_phone_input.setEnabled(false);
+
+        recycler_point_input.setVisibility(View.INVISIBLE);
+        recycler_point_input.setEnabled(false);
+
+        recycler_address_input.setVisibility(View.INVISIBLE);
+        recycler_address_input.setEnabled(false);
 
         //Firebase
         firebaseAuth = FirebaseAuth.getInstance();
@@ -55,24 +74,24 @@ public class RecyclerProfileActivity extends AppCompatActivity {
 
         userRef = firebaseDatabase.getReference().child("User").child(userID);
 
-        userRef.addValueEventListener(new ValueEventListener() {
+        /*userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String userName = dataSnapshot.child("userName").getValue().toString();
                 String phone = dataSnapshot.child("phone").getValue().toString();
                 String point = dataSnapshot.child("ecoPoint").getValue().toString();
                 String address = dataSnapshot.child("address").getValue().toString();
-                recycler_name_input.setText(userName);
-                recycler_phone_input.setText(phone);
-                recycler_point_input.setText(point);
-                recycler_address_input.setText(address);
+                recycler_name_tv.setText(userName);
+                recycler_phone_tv.setText(phone);
+                recycler_point_tv.setText(point);
+                recycler_address_tv.setText(address);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
         recycler_profile_save_button.setActivated(false);
 
@@ -92,31 +111,28 @@ public class RecyclerProfileActivity extends AppCompatActivity {
         recycler_profile_edit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                recycler_name_input.setFocusable(true);
+                recycler_name_input.setVisibility(View.VISIBLE);
                 recycler_name_input.setEnabled(true);
-                recycler_name_input.setClickable(true);
-                recycler_name_input.setFocusableInTouchMode(true);
 
-                recycler_phone_input.setFocusable(true);
+                recycler_phone_input.setVisibility(View.VISIBLE);
                 recycler_phone_input.setEnabled(true);
-                recycler_phone_input.setClickable(true);
-                recycler_phone_input.setFocusableInTouchMode(true);
 
-                recycler_point_input.setFocusable(true);
+                recycler_point_input.setVisibility(View.VISIBLE);
                 recycler_point_input.setEnabled(true);
-                recycler_point_input.setClickable(true);
-                recycler_point_input.setFocusableInTouchMode(true);
 
-                recycler_address_input.setFocusable(true);
+                recycler_address_input.setVisibility(View.VISIBLE);
                 recycler_address_input.setEnabled(true);
-                recycler_address_input.setClickable(true);
-                recycler_address_input.setFocusableInTouchMode(true);
 
                 recycler_profile_save_button.setVisibility(View.VISIBLE);
                 recycler_profile_save_button.setActivated(true);
 
                 recycler_profile_edit_button.setVisibility(View.INVISIBLE);
                 recycler_profile_edit_button.setActivated(false);
+
+                recycler_name_tv.setVisibility(View.INVISIBLE);
+                recycler_phone_tv.setVisibility(View.INVISIBLE);
+                recycler_point_input.setVisibility(View.INVISIBLE);
+                recycler_address_tv.setVisibility(View.INVISIBLE);
 
             }
         });
@@ -156,6 +172,23 @@ public class RecyclerProfileActivity extends AppCompatActivity {
 
                     recycler_profile_edit_button.setVisibility(View.VISIBLE);
                     recycler_profile_edit_button.setActivated(true);
+
+                    recycler_name_input.setVisibility(View.INVISIBLE);
+                    recycler_name_input.setEnabled(false);
+
+                    recycler_phone_input.setVisibility(View.INVISIBLE);
+                    recycler_phone_input.setEnabled(false);
+
+                    recycler_point_input.setVisibility(View.INVISIBLE);
+                    recycler_point_input.setEnabled(false);
+
+                    recycler_address_input.setVisibility(View.INVISIBLE);
+                    recycler_address_input.setEnabled(false);
+
+                    recycler_name_tv.setVisibility(View.VISIBLE);
+                    recycler_phone_tv.setVisibility(View.VISIBLE);
+                    recycler_point_input.setVisibility(View.VISIBLE);
+                    recycler_address_tv.setVisibility(View.VISIBLE);
                 }
 
             }
