@@ -10,12 +10,12 @@ import android.widget.Toast;
 
 import com.example.ecoversex.GeneralActivity.MainActivity;
 import com.example.ecoversex.R;
-import com.example.ecoversex.RecyclerActivity.RecyclerProfileActivity;
+import com.example.ecoversex.GeneralActivity.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class CollectorActivity extends AppCompatActivity {
 
-    Button collector_profile_button, collector_proposed_submission_button, collector_view_submission_button, collector_logout_button;
+    Button  collector_proposed_submission_button, collector_view_submission_button, collector_logout_button;
 
     //Add Database Stuff
     private FirebaseAuth firebaseAuth;
@@ -28,21 +28,11 @@ public class CollectorActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         //Components
-        collector_profile_button = (Button) findViewById(R.id.collector_profile_button);
         collector_proposed_submission_button = (Button) findViewById(R.id.collector_proposed_submission_button);
         collector_view_submission_button = (Button) findViewById(R.id.collector_view_submission_button);
         collector_logout_button = (Button) findViewById(R.id.collector_logout_button);
 
         //Button Functions
-        collector_profile_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(getApplicationContext(), RecyclerProfileActivity.class));
-                Toast.makeText(getApplicationContext(), "Collector Profile Page", Toast.LENGTH_LONG).show();
-            }
-        });
-
         collector_proposed_submission_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ecoversex.AdminActivity.AdminActivity;
 import com.example.ecoversex.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
     EditText forgot_password_email_input;
-    Button forgot_password_email_confirm_btn,forgot_password_email_cancel_btn;
+    Button forgot_password_email_confirm_btn,forgot_password_email_cancel_btn, admin_login_btn;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -30,6 +31,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         forgot_password_email_confirm_btn = (Button) findViewById(R.id.forgot_password_email_confirm_btn);
         forgot_password_email_input = (EditText) findViewById(R.id.forgot_password_email_input);
         forgot_password_email_cancel_btn = (Button) findViewById(R.id.forgot_password_email_cancel_btn);
+        admin_login_btn = (Button) findViewById(R.id.admin_login_btn);
 
         forgot_password_email_cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +55,16 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                         }
                     }
                 });
+            }
+        });
+
+        admin_login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(ForgotPasswordActivity.this, "Admin Login Page.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), AdminLoginActivity.class));
+
             }
         });
     }

@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecyclerActivity.RecyclerRedemptionPage"></activity>
+        <activity android:name=".ConfirmRedemptionPage"></activity>
+        <activity android:name=".GeneralActivity.UserActivity" />
+        <activity android:name=".GeneralActivity.AdminLoginActivity" />
+        <activity android:name=".RecyclerActivity.RecyclerRedemptionPage" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -30,7 +33,7 @@
         <activity android:name=".RecyclerActivity.EditSubmissionDialogActivity" />
         <activity android:name=".CollectorActivity.CollectorActivity" />
         <activity android:name=".RecyclerActivity.ProposeDialogActivity" />
-        <activity android:name=".RecyclerActivity.RecyclerProfileActivity" />
+        <activity android:name=".GeneralActivity.ProfileActivity" />
         <activity android:name=".RecyclerActivity.RecyclerActivity" />
         <activity android:name=".RecyclerActivity.RecyclerViewSubmissionActivity" />
         <activity android:name=".AdminActivity.DeleteMaterialActivity" />

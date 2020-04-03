@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ecoversex.GeneralActivity.MainActivity;
+import com.example.ecoversex.GeneralActivity.ProfileActivity;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RecyclerActivity extends AppCompatActivity {
 
-    Button recycler_profile_button, recycler_view_material_button, recycler_view_submission_button, recycler_logout_button ,recycler_redemption_button;
+    Button recycler_view_material_button, recycler_view_submission_button, recycler_logout_button ,recycler_redemption_button;
 
     //Add Database Stuff
     private FirebaseAuth firebaseAuth;
@@ -27,21 +28,12 @@ public class RecyclerActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         //Components
-        recycler_profile_button = (Button)findViewById(R.id.recycler_profile_button);
         recycler_view_material_button = (Button) findViewById(R.id.recycler_view_material_button);
         recycler_view_submission_button = (Button) findViewById(R.id.recycler_view_submission_button);
         recycler_logout_button = (Button) findViewById(R.id.recycler_logout_button);
         recycler_redemption_button = (Button) findViewById(R.id.recycler_redemption_button);
 
         //Button Functions
-        recycler_profile_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), RecyclerProfileActivity.class));
-                Toast.makeText(getApplicationContext(), "Admin Profile Page", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         recycler_view_material_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

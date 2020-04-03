@@ -1,4 +1,4 @@
-package com.example.ecoversex.RecyclerActivity;
+package com.example.ecoversex.GeneralActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.ecoversex.GeneralActivity.UserActivity;
 import com.example.ecoversex.HelperClass.User;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class RecyclerProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     private static final String TAG = "Add to Database";
 
@@ -189,6 +191,9 @@ public class RecyclerProfileActivity extends AppCompatActivity {
                     recycler_phone_tv.setVisibility(View.VISIBLE);
                     recycler_point_input.setVisibility(View.VISIBLE);
                     recycler_address_tv.setVisibility(View.VISIBLE);
+
+                    startActivity(new Intent(getApplicationContext(), UserActivity.class));
+                    Toast.makeText(getApplicationContext(), "User Main Page.", Toast.LENGTH_LONG).show();
                 }
 
             }

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GeneralActivity.LoginActivity">
+    tools:context=".GeneralActivity.AdminLoginActivity">
 
     <ImageView
-        android:id="@+id/login_AppLogo"
+        android:id="@+id/admin_login_AppLogo"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
@@ -15,10 +15,10 @@
         android:src="@drawable/recycle"/>
 
     <EditText
-        android:id="@+id/login_email_input"
+        android:id="@+id/admin_login_email_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_AppLogo"
+        android:layout_below="@+id/admin_login_AppLogo"
         android:background="@drawable/input_design"
         android:padding="20dp"
         android:layout_marginTop="20dp"
@@ -33,10 +33,10 @@
         />
 
     <EditText
-        android:id="@+id/login_password_input"
+        android:id="@+id/admin_login_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/login_email_input"
+        android:layout_below="@+id/admin_login_email_input"
         android:background="@drawable/input_design"
         android:padding="20dp"
         android:layout_marginTop="6dp"
@@ -51,16 +51,16 @@
         />
 
     <LinearLayout
-        android:id="@+id/login_LinearLayout"
+        android:id="@+id/admin_login_LinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/login_password_input"
+        android:layout_below="@id/admin_login_password_input"
         android:layout_marginTop="10dp"
         >
 
         <CheckBox
-            android:id="@+id/remember_me_checkbox"
+            android:id="@+id/admin_remember_me_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Remember me"
@@ -72,7 +72,7 @@
             />
 
         <TextView
-            android:id="@+id/forget_password_link"
+            android:id="@+id/admin_forget_password_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Forget Password?"
@@ -85,12 +85,12 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/login_login_btn"
+        android:id="@+id/admin_login_login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="false"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/login_LinearLayout"
+        android:layout_below="@+id/admin_login_LinearLayout"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
@@ -106,12 +106,10 @@
         android:id="@+id/login_progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/login_login_btn"
+        android:layout_below="@id/admin_login_login_btn"
         android:layout_marginStart="177dp"
         android:layout_marginTop="20dp"
         android:visibility="invisible"
         android:padding="5dp" />
-
-
 
 </RelativeLayout>

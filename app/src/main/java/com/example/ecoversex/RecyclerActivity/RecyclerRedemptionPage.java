@@ -3,6 +3,9 @@ package com.example.ecoversex.RecyclerActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -34,7 +37,7 @@ public class RecyclerRedemptionPage extends AppCompatActivity {
 
         redemption_listview = (ListView) findViewById(R.id.redemption_listview);
 
-        List<HashMap<String, String>> redemptionList = new ArrayList<>();
+        final List<HashMap<String, String>> redemptionList = new ArrayList<>();
 
         for (int i = 0; i < 8; i++){
             HashMap<String, String> hashMap = new HashMap<>();
@@ -50,7 +53,6 @@ public class RecyclerRedemptionPage extends AppCompatActivity {
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(getBaseContext(), redemptionList, R.layout.redemption_list_layout, from, to);
         redemption_listview.setAdapter(simpleAdapter);
-
 
 
     }

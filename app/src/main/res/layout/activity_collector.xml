@@ -36,25 +36,12 @@
         android:padding="20dp"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:text="Profile"
-        android:textColor="@color/colorPrimary"
-        android:background="@drawable/transparentbackground"
-        android:id="@+id/collector_profile_button"
-        android:layout_below="@id/collector_textview" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
         android:layout_marginTop="10dp"
         android:text="View Proposal"
         android:textColor="@color/colorPrimary"
         android:background="@drawable/transparentbackground"
         android:id="@+id/collector_proposed_submission_button"
-        android:layout_below="@id/collector_profile_button"/>
+        android:layout_below="@id/collector_textview"/>
 
     <Button
         android:layout_width="match_parent"
