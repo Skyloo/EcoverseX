@@ -66,7 +66,7 @@ public class EditSubmissionDialogActivity extends AppCompatActivity {
                 subReference.child(submissionId).removeValue();
 
                 Toast.makeText(getApplicationContext(), "Submission successfully deleted." ,Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(), RecyclerViewSubmissionActivity.class));
+                startActivity(new Intent(getApplicationContext(), RecyclerActivity.class));
             }
         });
 

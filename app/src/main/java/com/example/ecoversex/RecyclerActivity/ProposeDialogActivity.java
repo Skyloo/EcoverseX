@@ -92,7 +92,7 @@ public class ProposeDialogActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(),"Submission Proposed", Toast.LENGTH_LONG).show();
 
-                    startActivity(new Intent(getApplicationContext(), RecyclerViewMaterialActivity.class));
+                    startActivity(new Intent(getApplicationContext(), RecyclerActivity.class));
                 }
                 else{
                     if (TextUtils.isEmpty(proposeDate)){
@@ -106,6 +106,9 @@ public class ProposeDialogActivity extends AppCompatActivity {
                     }
 
                 }
+                propose_date_edittext.setText("");
+                actual_date_edittext.setText("");
+                weight_edittext.setText("");
             }
         });
 

@@ -33,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView recycler_name_tv, recycler_phone_tv, recycler_point_tv, recycler_address_tv;
 
 
-    //Firebase
+    //Firebasec
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;

@@ -117,6 +117,10 @@ public class AddMaterialActivity extends AppCompatActivity {
                     }
 
                 }
+                materialid_input.setText("");
+                materialname_input.setText("");
+                description_input.setText("");
+                pointPerKg_input.setText("");
             }
         });
 

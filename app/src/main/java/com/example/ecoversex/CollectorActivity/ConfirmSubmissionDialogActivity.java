@@ -77,7 +77,7 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
         completedSubRef = FirebaseDatabase.getInstance().getReference("completed_submission");
         userRef = FirebaseDatabase.getInstance().getReference("User").child(userId);
 
-        userRef.child("ecoPoint").addValueEventListener(new ValueEventListener() {
+        /*userRef.child("ecoPoint").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 final String ePoint = dataSnapshot.child("ecoPoint").getValue().toString();
@@ -88,7 +88,7 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
 
         //Change the status to "confirmed" and add points to user
         confirm_submission_button.setOnClickListener(new View.OnClickListener() {
