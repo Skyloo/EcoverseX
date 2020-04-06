@@ -9,13 +9,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.ecoversex.GeneralActivity.MainActivity;
+import com.example.ecoversex.GeneralActivity.UserActivity;
 import com.example.ecoversex.R;
 import com.example.ecoversex.GeneralActivity.ProfileActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class CollectorActivity extends AppCompatActivity {
 
-    Button  collector_proposed_submission_button, collector_view_submission_button, collector_logout_button;
+    Button  collector_proposed_submission_button, collector_view_submission_button, collector_back_button;
 
     //Add Database Stuff
     private FirebaseAuth firebaseAuth;
@@ -30,7 +31,7 @@ public class CollectorActivity extends AppCompatActivity {
         //Components
         collector_proposed_submission_button = (Button) findViewById(R.id.collector_proposed_submission_button);
         collector_view_submission_button = (Button) findViewById(R.id.collector_view_submission_button);
-        collector_logout_button = (Button) findViewById(R.id.collector_logout_button);
+        collector_back_button = (Button) findViewById(R.id.collector_back_button);
 
         //Button Functions
         collector_proposed_submission_button.setOnClickListener(new View.OnClickListener() {
@@ -51,13 +52,12 @@ public class CollectorActivity extends AppCompatActivity {
             }
         });
 
-        collector_logout_button.setOnClickListener(new View.OnClickListener() {
+        collector_back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                firebaseAuth.signOut();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                Toast.makeText(getApplicationContext(), "Logout Successful", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), UserActivity.class));
+                Toast.makeText(getApplicationContext(), "User Activity.", Toast.LENGTH_LONG).show();
             }
         });
 

@@ -10,12 +10,13 @@ import android.widget.Toast;
 
 import com.example.ecoversex.GeneralActivity.MainActivity;
 import com.example.ecoversex.GeneralActivity.ProfileActivity;
+import com.example.ecoversex.GeneralActivity.UserActivity;
 import com.example.ecoversex.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class RecyclerActivity extends AppCompatActivity {
 
-    Button recycler_view_material_button, recycler_view_submission_button, recycler_logout_button ,recycler_redemption_button;
+    Button recycler_view_material_button, recycler_view_submission_button, recycler_back_button ,recycler_redemption_button;
 
     //Add Database Stuff
     private FirebaseAuth firebaseAuth;
@@ -30,7 +31,7 @@ public class RecyclerActivity extends AppCompatActivity {
         //Components
         recycler_view_material_button = (Button) findViewById(R.id.recycler_view_material_button);
         recycler_view_submission_button = (Button) findViewById(R.id.recycler_view_submission_button);
-        recycler_logout_button = (Button) findViewById(R.id.recycler_logout_button);
+        recycler_back_button = (Button) findViewById(R.id.recycler_back_button);
         recycler_redemption_button = (Button) findViewById(R.id.recycler_redemption_button);
 
         //Button Functions
@@ -50,12 +51,11 @@ public class RecyclerActivity extends AppCompatActivity {
             }
         });
 
-        recycler_logout_button.setOnClickListener(new View.OnClickListener() {
+        recycler_back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firebaseAuth.signOut();
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                Toast.makeText(getApplicationContext(), "Logout Successful!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), UserActivity.class));
+                Toast.makeText(getApplicationContext(), "User Activity.", Toast.LENGTH_SHORT).show();
             }
         });
 

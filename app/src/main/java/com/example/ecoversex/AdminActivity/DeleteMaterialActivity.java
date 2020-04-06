@@ -85,7 +85,7 @@ public class DeleteMaterialActivity extends AppCompatActivity {
 
                 materialRef.child(materialID).removeValue();
                 Toast.makeText(getApplicationContext(), "Material" + Material.class.toString() + " is Deleted.", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(), AdminViewMaterialActivity.class));
+                startActivity(new Intent(getApplicationContext(), AdminActivity.class));
             }
         });
 

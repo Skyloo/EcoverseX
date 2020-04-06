@@ -76,9 +76,9 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="50dp"
-        android:text="Logout"
+        android:text="Back"
         android:background="@drawable/transparentbackground"
-        android:id="@+id/recycler_logout_button"
+        android:id="@+id/recycler_back_button"
         android:layout_below="@id/recycler_redemption_button"/>
 
 </RelativeLayout>

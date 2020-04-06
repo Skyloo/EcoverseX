@@ -63,9 +63,9 @@
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="50dp"
-        android:text="Logout"
+        android:text="Back"
         android:background="@drawable/transparentbackground"
-        android:id="@+id/collector_logout_button"
+        android:id="@+id/collector_back_button"
         android:layout_below="@id/collector_view_submission_button"/>
 
 </RelativeLayout>
