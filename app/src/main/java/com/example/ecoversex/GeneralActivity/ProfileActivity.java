@@ -74,27 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         userID = user.getUid();
 
-        userRef = firebaseDatabase.getReference().child("User").child(userID);
-
-        /*userRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String userName = dataSnapshot.child("userName").getValue().toString();
-                String phone = dataSnapshot.child("phone").getValue().toString();
-                String point = dataSnapshot.child("ecoPoint").getValue().toString();
-                String address = dataSnapshot.child("address").getValue().toString();
-                recycler_name_tv.setText(userName);
-                recycler_phone_tv.setText(phone);
-                recycler_point_tv.setText(point);
-                recycler_address_tv.setText(address);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
         recycler_profile_save_button.setActivated(false);
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -198,9 +177,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
-
-
 
     }
 }

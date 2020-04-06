@@ -17,6 +17,7 @@ import com.example.ecoversex.HelperClass.User;
 import com.example.ecoversex.R;
 import com.example.ecoversex.RecyclerActivity.RecyclerViewSubmissionActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
 
     Button confirm_submission_button;
-    TextView confirm_submissionid_textview, confirm_proposedDate_textview, confirm_materialName_textview, confirm_weight_textview, confirm_status_textview,confirm_userid_textview;
+    TextView confirm_firebase_point_textview, confirm_submissionid_textview, confirm_proposedDate_textview, confirm_materialName_textview, confirm_weight_textview, confirm_status_textview,confirm_userid_textview;
 
     //Firebase
     DatabaseReference cSubmissionRef;
@@ -37,6 +38,7 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
     DatabaseReference completedSubRef;
     DatabaseReference userRef;
     User user;
+    String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+
         confirm_submission_button = (Button) findViewById(R.id.confirm_submission_button);
         confirm_submissionid_textview = (TextView) findViewById(R.id.confirm_submissionid_textview);
         confirm_proposedDate_textview = (TextView) findViewById(R.id.confirm_proposedDate_textview);
@@ -52,6 +55,7 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
         confirm_weight_textview = (TextView) findViewById(R.id.confirm_weight_textview);
         confirm_status_textview = (TextView)findViewById(R.id.confirm_status_textview);
         confirm_userid_textview = (TextView) findViewById(R.id.confirm_userid_textview);
+        confirm_firebase_point_textview = (TextView) findViewById(R.id.confirm_firebase_point_textview);
 
         Intent intent = getIntent();
 
@@ -77,12 +81,12 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
         completedSubRef = FirebaseDatabase.getInstance().getReference("completed_submission");
         userRef = FirebaseDatabase.getInstance().getReference("User").child(userId);
 
-        /*userRef.child("ecoPoint").addValueEventListener(new ValueEventListener() {
+        /*userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final String ePoint = dataSnapshot.child("ecoPoint").getValue().toString();
-                user.setEcoPoints(ePoint);
-
+                for (DataSnapshot ds : dataSnapshot.getChildren()){
+                    confirm_firebase_point_textview.setText(ds.child("ecoPoints").getValue(String.class));
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -95,7 +99,7 @@ public class ConfirmSubmissionDialogActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String status = "confirmed";
-                final int p = Integer.parseInt(user.getEcoPoints());
+                int p = Integer.parseInt(confirm_firebase_point_textview.getText().toString());
                 int eP = Integer.parseInt(point);
                 int totalPoint = (eP + p);
                 String nTotalPoint = Integer.toString(totalPoint);

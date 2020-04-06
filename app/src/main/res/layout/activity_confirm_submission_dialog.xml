@@ -89,10 +89,23 @@
         android:textSize="22sp"
         android:textAlignment="center"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/confirm_firebase_point_textview"
+        android:layout_below="@+id/confirm_userid_textview"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:text="7"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        android:visibility="invisible"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/confirm_userid_textview"
+        android:layout_below="@+id/confirm_firebase_point_textview"
         android:id="@+id/confirm_submission_button"
         android:layout_marginTop="50dp"
         android:layout_marginRight="15dp"
